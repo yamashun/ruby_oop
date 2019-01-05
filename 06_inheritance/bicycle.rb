@@ -1,8 +1,14 @@
 class Bicycle
-  attr_reader :size
+  attr_reader :size, :chain, :tire_size
 
   def initialize(args={})
     @size = args[:size]
+    @chain = args[:chain] || derault_chain
+    @tire_size = args[:tire_size] || default_tire_size
+  end
+
+  def derault_chain
+    '10-speed'
   end
 end
 
@@ -16,10 +22,14 @@ class RoadBike < Bicycle
 
   def spares
     {
-      chain: '10-speed',
-      tire_size: '23',
+      chain: chain,
+      tire_size: tire_size,
       tape_color: tape_color
     }
+  end
+
+  def default_tire_size
+    '23'
   end
 end
 
@@ -34,6 +44,10 @@ class MountainBike < Bicycle
 
   def spares
     super.merge(rear_shock: rear_shock)
+  end
+
+  def default_tire_size
+    '2.1'
   end
 end
 
