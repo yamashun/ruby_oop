@@ -10,6 +10,10 @@ class Bicycle
   def derault_chain
     '10-speed'
   end
+
+  def default_tire_size
+    raise NotImplementedError, "This #{self.class} cannot respond to"
+  end
 end
 
 class RoadBike < Bicycle
@@ -48,6 +52,12 @@ class MountainBike < Bicycle
 
   def default_tire_size
     '2.1'
+  end
+end
+
+class RecumbentBike < Bicycle
+  def derault_chain
+    '9-speed'
   end
 end
 
