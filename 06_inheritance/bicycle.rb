@@ -1,9 +1,17 @@
 class Bicycle
-  attr_reader :size, :tape_color
+  attr_reader :size
+
+  def initialize(args={})
+    @size = args[:size]
+  end
+end
+
+class RoadBike < Bicycle
+  attr_reader :tape_color
 
   def initialize(args)
-    @size = args[:size]
     @tape_color = args[:tape_color]
+    super(args)
   end
 
   def spares
@@ -29,13 +37,13 @@ class MountainBike < Bicycle
   end
 end
 
-bike = Bicycle.new(
+road_bike = RoadBike.new(
   size: 'M',
   tape_color: 'red'
 )
 
-puts bike.size
-puts bike.spares
+puts road_bike.size
+puts road_bike.spares
 
 mountain_bike = MountainBike.new(
   size: 'S',

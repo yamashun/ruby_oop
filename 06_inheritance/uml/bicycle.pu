@@ -1,8 +1,12 @@
 @startuml
 title Bicycle
-class "Bicycle" as Bicycle
+class "Bicycle" as Bicycle {
+  
+}
 
+class "RoadBike" as RoadBike
 class "MountainBike" as MountainBike
 
+Bicycle <|-- RoadBike
 Bicycle <|-- MountainBike
 @enduml
