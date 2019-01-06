@@ -7,6 +7,13 @@ class Bicycle
     @tire_size = args[:tire_size] || default_tire_size
   end
 
+  def spares
+    {
+      tire_size: tire_size,
+      chain: chain,
+    }
+  end
+
   def derault_chain
     '10-speed'
   end
@@ -25,11 +32,7 @@ class RoadBike < Bicycle
   end
 
   def spares
-    {
-      chain: chain,
-      tire_size: tire_size,
-      tape_color: tape_color
-    }
+    super.merge(tape_color: tape_color)
   end
 
   def default_tire_size
