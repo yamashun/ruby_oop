@@ -59,8 +59,22 @@ class MountainBike < Bicycle
 end
 
 class RecumbentBike < Bicycle
+  attr_reader :flag
+
+  def initialize(args)
+    @flag = args[:flag] # super を送信するのを忘れた
+  end
+
+  def spares
+    super.merge(flag: flag)
+  end
+
   def derault_chain
     '9-speed'
+  end
+
+  def default_tire_size
+    '28'
   end
 end
 
@@ -80,3 +94,7 @@ mountain_bike = MountainBike.new(
 
 puts mountain_bike.size
 puts mountain_bike.spares
+
+
+bent = RecumbentBike.new(flag: 'tall and orange')
+puts bent.spares
