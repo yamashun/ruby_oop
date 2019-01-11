@@ -86,3 +86,11 @@ road_bike = Bicycle.new(
 )
 puts road_bike.size
 puts road_bike.spares
+
+mountain_bike = Bicycle.new(
+  size: 'L',
+  parts: MountainBikeParts.new(rear_shock: 'Fox')
+)
+
+puts mountain_bike.size
+puts mountain_bike.spares
