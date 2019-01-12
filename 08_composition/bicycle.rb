@@ -14,14 +14,16 @@ end
 class Parts
   attr_reader :parts
 
-  attr_reader :size, :chain, :tire_size
-
   def initialize(parts)
     @parts = parts
   end
 
   def spares
     parts.select{|part| part.needs_spare}
+  end
+
+  def size
+    parts.size
   end
 end
 
@@ -105,3 +107,6 @@ mountain_bike = Bicycle.new(
 
 puts mountain_bike.size
 puts mountain_bike.spares
+
+puts road_bike.parts.size
+puts mountain_bike.parts.size
