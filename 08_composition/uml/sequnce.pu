@@ -1,0 +1,6 @@
+@startuml
+Bicycle -> Parts : spares
+Parts -> Part : need spares
+Part --> Parts
+Parts --> Bicycle
+@enduml
