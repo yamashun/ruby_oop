@@ -17,14 +17,36 @@ end
 
 
 class GearTest < MiniTest::Unit::TestCase
-  def test_calculates_gear_inches
-    gear = Gear.new(
+
+  def setup
+    @observer = MiniTest::Mock.new
+    @gear = Gear.new(
       chainring: 52,
       cog: 11,
-      wheel: DameterDouble.new
+      observer: @observer
     )
-
-    assert_in_delta(47.27, gear.gear_inches, 0.01)
   end
+
+  def test_notifies_observers_when_cogs_changed
+    @observer.expect(:changed, true, [52, 27])
+    @gear.set_cog(27)
+    @observer.verify
+  end
+
+  def test_notifies_observers_when_chainrings_changed
+    @observer.expect(:changed, true, [42, 11])
+    @gear.set_chainring(42)
+    @observer.verify
+  end
+
+  # def test_calculates_gear_inches
+  #   gear = Gear.new(
+  #     chainring: 52,
+  #     cog: 11,
+  #     wheel: DameterDouble.new
+  #   )
+
+  #   assert_in_delta(47.27, gear.gear_inches, 0.01)
+  # end
 end
 
