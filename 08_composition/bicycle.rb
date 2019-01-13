@@ -59,3 +59,11 @@ road_parts = PartsFactory.build(road_config)
 puts road_parts
 mountain_parts = PartsFactory.build(mountain_config)
 puts mountain_parts
+recumbent_config = [
+  ['chain', '9-speed'], ['tire_size', '28'], ['flag', 'tall and orange']
+]
+
+recumbent_bike = Bicycle.new(
+  size: 'L',
+  parts: PartsFactory.build(recumbent_config)
+)
