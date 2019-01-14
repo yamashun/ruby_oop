@@ -27,3 +27,14 @@ class DriverTest < MiniTest::Test
     @driver = @object = Driver.new
   end
 end
+
+class TripTest < MiniTest::Test
+  def test_request_trip_preparation
+    @preparer = MiniTest::Mock.new
+    @trip = Trip.new
+    @preparer.expect(:prepare_trip, nil, [@trip])
+
+    @trip.prepare([@preparer])
+    @preparer.verify
+  end
+end
