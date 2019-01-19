@@ -86,23 +86,23 @@ class RecumbentBike < Bicycle
   end
 end
 
-road_bike = RoadBike.new(
-  size: 'M',
-  tape_color: 'red'
-)
+# road_bike = RoadBike.new(
+#   size: 'M',
+#   tape_color: 'red'
+# )
 
-puts road_bike.size
-puts road_bike.spares
+# puts road_bike.size
+# puts road_bike.spares
 
-mountain_bike = MountainBike.new(
-  size: 'S',
-  front_shock: 'Maintou',
-  rear_shock: 'Fox'
-)
+# mountain_bike = MountainBike.new(
+#   size: 'S',
+#   front_shock: 'Maintou',
+#   rear_shock: 'Fox'
+# )
 
-puts mountain_bike.size
-puts mountain_bike.spares
+# puts mountain_bike.size
+# puts mountain_bike.spares
 
 
-bent = RecumbentBike.new(flag: 'tall and orange')
-puts bent.spares
+# bent = RecumbentBike.new(flag: 'tall and orange')
+# puts bent.spares
